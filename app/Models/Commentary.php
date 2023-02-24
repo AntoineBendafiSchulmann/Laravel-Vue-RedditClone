@@ -7,13 +7,13 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Community extends Model
+class Commentary extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["user_id", "name", "description", "image", "slug", "status", "created_at", "updated_at"];
-    public function posts () {
-        return $this->hasMany(Post::class);
+    protected $fillable = ["user_id","post_id", "body", "created_at", "updated_at"];
+    public function post () {
+        return $this->belongsTo(Post::class);
     }
 
     public function user () {

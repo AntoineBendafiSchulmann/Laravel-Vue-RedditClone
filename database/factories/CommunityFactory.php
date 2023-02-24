@@ -26,7 +26,7 @@ class CommunityFactory extends Factory
             'description' => $this->faker->text,
             'image' => $this->faker->imageUrl(640, 480, 'cats', true, 'Faker'),
             'slug' => $this->faker->slug,
-            'status' => $this->faker->numberBetween(0, 1),
+            'status' => $this->faker->randomElement(['video_game', 'movie', 'book', 'music', 'series']),
         ];
     }
 }

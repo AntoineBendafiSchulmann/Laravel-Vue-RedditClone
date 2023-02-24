@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import HomeIcon from '@/Components/HomeIcon.vue'
+import CommIcon from '@/Components/CommIcon.vue'
+import AddIcon from '@/Components/AddIcon.vue'
+import DashboardIcon from '@/Components/DashboardIcon.vue'
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
@@ -20,27 +24,31 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-gray-800"
-                                    />
+                                <Link :href="route('welcome')">
+                                    <img src="https://reddit.com/favicon.ico" alt="Reddit" class="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink>
-                                <NavLink :href="route('projects.index')" :active="route().current('projects.*')">
-                                    Projets
-                                </NavLink>
-                                <NavLink :href="route('clients.index')" :active="route().current('clients.*')">
-                                    Clients
+                                <NavLink :href="route('welcome')" :active="route().current('welcome')">
+                                    <HomeIcon class="h-5 w-5" />
+                                    Accueil
                                 </NavLink> 
+                                <NavLink :href="route('forum')" :active="route().current('forum')">
+                                    <CommIcon class="h-5 w-5" />
+                                    Communautés
+                                </NavLink>
+                                <NavLink :href="route('posts.create')" :active="route().current('posts.create')">
+                                    <AddIcon class="h-5 w-5" />
+                                    Créer un post
+                                </NavLink>
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    <DashboardIcon class="h-5 w-5" />
+                                    Modération
+                                </NavLink>
                             </div>
                         </div>
-
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <!-- Settings Dropdown -->

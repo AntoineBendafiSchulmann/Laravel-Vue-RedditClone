@@ -3,8 +3,10 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
-    'projects': Number,
-    'clients': Number,
+    'posts': Number,
+    'communities': Number,
+    'users': Number,
+    'commentaries': Number,
 })
 
 </script>
@@ -15,7 +17,7 @@ const props = defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Espace d'administration</h2>
         </template>
 
         <div class="py-12">
@@ -25,26 +27,46 @@ const props = defineProps({
                     <div class="flex justify-around px-5 py-5 gap-x-5">
                         <div class="my-5 py-5 px-5 w-full rounded-xl">
                             <p class="text-gray-500">
-                                Nombre de clients
+                                Nombre de communautés
                             </p>
                             <p class="py-2 font-bold text-xl">
-                                {{ props.clients }}
+                                {{ props.communities }}
                             </p>
                             <div class="bg-gray-100 rounded-br-lg rounded-bl-lg py-5 px-5">
-                                <Link class="bg-gray-100 text-indigo-500" :href="route('clients.index')">Voir tous les
-                                clients</Link>
+                                <Link class="bg-gray-100 text-indigo-500" :href="route('communities.index')">Voir toutes les communautés</Link>
                             </div>
                         </div>
                         <div class="my-5 py-5 px-5 w-full   rounded-xl">
                             <p class="text-gray-500">
-                                Nombre de projets
+                                Nombre de posts
                             </p>
                             <p class="py-2 font-bold text-xl">
-                                {{ props.projects }}
+                                {{ props.posts }}
                             </p>
                             <div class="bg-gray-100 rounded-br-lg rounded-bl-lg py-5 px-5">
-                                <Link class="bg-gray-100 text-indigo-500" :href="route('projects.index')">Voir tous les
-                                projets</Link>
+                                <Link class="bg-gray-100 text-indigo-500" :href="route('posts.index')">Voir tous les posts</Link>
+                            </div>
+                        </div>
+                        <div class="my-5 py-5 px-5 w-full   rounded-xl">
+                            <p class="text-gray-500">
+                                Nombre d'utilisateurs
+                            </p>
+                            <p class="py-2 font-bold text-xl">
+                                {{ props.users }} 
+                            </p>
+                            <div class="bg-gray-100 rounded-br-lg rounded-bl-lg py-5 px-5">
+                                <Link class="bg-gray-100 text-indigo-500" :href="route('users.index')">Voir tous les utilisateurs</Link>
+                            </div>
+                        </div>
+                        <div class="my-5 py-5 px-5 w-full   rounded-xl">
+                            <p class="text-gray-500">
+                                Nombre de commentaires
+                            </p>
+                            <p class="py-2 font-bold text-xl">
+                                {{ props.commentaries }} 
+                            </p>
+                            <div class="bg-gray-100 rounded-br-lg rounded-bl-lg py-5 px-5">
+                                <Link class="bg-gray-100 text-indigo-500" :href="route('commentaries.index')">Gestion des commentaires</Link>
                             </div>
                         </div>
                     </div>
