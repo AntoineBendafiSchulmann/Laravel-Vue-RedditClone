@@ -17,9 +17,10 @@ const props = defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Communauté {{ $page.props.community.name }}
-            </h2>
+            <div class="flex justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Communauté {{ $page.props.community.name }}</h2>
+                <a class="py-2 px-6 mx-2 bg-black text-white rounded" :href="route('forum')">Retour à la liste des communautés</a>
+            </div>
         </template>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -46,11 +47,11 @@ const props = defineProps({
                             </tr>
                             </tbody>
                         </table>
-                        <a href="/communities" class="bg-gray-200 hover:bg-gray-300 text-black  font-bold py-2 px-4 rounded">Retour à la liste</a>
+                        
                     </div>
 
                     <div class="p-6">
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Posts de la communauté {{ props.community.name }}</h2>
+                        <h2 class="font-semibold text-black transition-colors duration-300  sm:text-lg">Posts de la communauté {{ props.community.name }}</h2>
 
                         <template v-if="props.community.posts.length === 0">
                             <p class="text-center">Cette communauté n'a pas encore de posts</p>

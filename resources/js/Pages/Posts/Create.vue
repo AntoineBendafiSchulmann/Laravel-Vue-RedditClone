@@ -57,7 +57,7 @@ const submit=()=>{
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="body">
                                     Contenu 
                                 </label>
-                                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Body" name="body" required v-model="form.body"></textarea>
+                                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="" type="text" placeholder="Contenu" name="body" required v-model="form.body"></textarea>
                                 
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
                                     Image

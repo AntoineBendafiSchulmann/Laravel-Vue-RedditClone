@@ -31,10 +31,13 @@ function image(image) {
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{post.title}} écrit par {{post.user.name}}</h2>
+            <div class="flex justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{post.title}} écrit par {{post.user.name}}</h2>
+                <a class="py-2 px-6 mx-2 bg-black text-white rounded" :href="route('welcome')">Retour à l'accueil</a>
+            </div>
         </template>
         
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
                         <table class="table-auto w-full mb-5">
@@ -61,19 +64,22 @@ function image(image) {
                             </tr>
                             </tbody>
                         </table>
-
-                        <a href="/posts" class="mt-5 bg-gray-200 hover:bg-gray-300 text-black  font-bold py-2 px-4 rounded">Retour à la liste</a>
                     </div>
 
-
+                    
+                        
                     
                     <div class="p-6">
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Commentaires du post {{post.title}}</h2>
+                        
                         <CommentaryCreate :post="props.post"/>
-                        <div v-for="comment in props.post.comments" :key="comment.id" class=" border  py-2 space-x-5  mb-3">
-                            <div class="ml-5">{{comment.user.name}}</div>
-                            <div class="ml-3">{{comment.body}}</div>
+                        <div v-for="comment in props.post.comments" :key="comment.id" class="border  py-2 space-x-5  mb-3">
+                            <div class="flex justify-between">
+                                <div class="text-xs ml-5">{{comment.user.name}}</div>
+                                <button  class="mr-4 text-xs">...</button>
+                            </div>
+                            <div class="ml-3 pr-9">{{comment.body}}</div>
 
+                            
 
                         </div>
                     </div>
